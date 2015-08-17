@@ -1,4 +1,4 @@
-%FROM gliderlabs/alpine:3.1
+FROM gliderlabs/alpine:3.1
 ENTRYPOINT ["/bin/site-router"]
 
 COPY . /go/src/github.com/mikroio/site-router
