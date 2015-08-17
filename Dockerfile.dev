@@ -1,0 +1,10 @@
+FROM gliderlabs/alpine:3.1
+CMD ["/bin/site-router"]
+
+ENV GOPATH /go
+RUN apk-install go git mercurial
+COPY . /go/src/github.com/mikroio/site-router
+RUN cd /go/src/github.com/mikroio/site-router \
+	&& go get \
+	&& go build -ldflags "-X main.Version dev" -o /bin/site-router
+
